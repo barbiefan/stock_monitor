@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <CheckBox Content="Автоматическое обновление" HorizontalAlignment="Left" Margin="471,10,0,0" VerticalAlignment="Top"/>
-        <Button Content="Обновить" HorizontalAlignment="Left" Margin="188,8,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Обновить" HorizontalAlignment="Left" Margin="379,7,0,0" VerticalAlignment="Top" Click="Button_Click" Height="22"/>
         <ComboBox HorizontalAlignment="Left" Margin="670,7,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Динамика курса доллара США к рублю ("/><Run Text="USD, "/><Run Text="ЦБ "/><Run Language="ru-ru" Text="Р"/><Run Text="Ф)"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Курс валют на 16.02 - 77.78" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
