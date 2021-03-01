@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using testtask1.ViewModels;
 
 namespace testtask1
 {
@@ -23,6 +24,9 @@ namespace testtask1
         public MainWindow()
         {
             InitializeComponent();
+            StockPriceViewModel stock = new StockPriceViewModel();
+            stock.LoadPrices(10, 5);
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
