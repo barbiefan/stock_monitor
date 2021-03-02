@@ -11,9 +11,9 @@ namespace testtask1.Models
 
     public class StockPrice
     {
-        public DateTime date;
-        public float    price;
-        public float    change;
+        public DateTime date { get; set; }
+        public decimal  price { get; set; }
+        public float    change { get; set; }
 
     }
 }

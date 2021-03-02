@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using testtask1.ViewModels;
+//using testtask1.ViewModels;
 
 namespace testtask1
 {
@@ -23,9 +23,9 @@ namespace testtask1
     {
         public MainWindow()
         {
+            this.DataContext = new StockPriceViewModel();
+
             InitializeComponent();
-            StockPriceViewModel stock = new StockPriceViewModel();
-            stock.LoadPrices(10, 5);
 
         }
 

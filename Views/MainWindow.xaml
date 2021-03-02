@@ -1,9 +1,10 @@
-﻿<Window x:Class="testtask1.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:testtask1"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="testtask1.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -12,8 +13,25 @@
         <ComboBox HorizontalAlignment="Left" Margin="670,7,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Динамика курса доллара США к рублю ("/><Run Text="USD, "/><Run Text="ЦБ "/><Run Language="ru-ru" Text="Р"/><Run Text="Ф)"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Курс валют на 16.02 - 77.78" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
-        <DataGrid HorizontalAlignment="Left" Height="334" Margin="10,75,0,0" VerticalAlignment="Top" Width="518"/>
         <ScrollViewer HorizontalAlignment="Left" Height="334" Margin="541,75,0,0" VerticalAlignment="Top" Width="241"/>
+
+        <syncfusion:SfChart Margin="0,42,140,0">
+                                    
+            <syncfusion:SfChart.PrimaryAxis>
+
+                <syncfusion:CategoryAxis Header="Date" />
+
+            </syncfusion:SfChart.PrimaryAxis>
+
+            <syncfusion:SfChart.SecondaryAxis>
+
+                <syncfusion:NumericalAxis Header="usd" />
+
+            </syncfusion:SfChart.SecondaryAxis>
+
+            <syncfusion:LineSeries ItemsSource="{Binding Data}" XBindingPath="date" YBindingPath="price" Interior="#FF0000" />
+
+        </syncfusion:SfChart>
 
     </Grid>
 </Window>
