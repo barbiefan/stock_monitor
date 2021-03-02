@@ -13,25 +13,16 @@
         <ComboBox HorizontalAlignment="Left" Margin="670,7,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Динамика курса доллара США к рублю ("/><Run Text="USD, "/><Run Text="ЦБ "/><Run Language="ru-ru" Text="Р"/><Run Text="Ф)"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Курс валют на 16.02 - 77.78" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="334" Margin="541,75,0,0" VerticalAlignment="Top" Width="241"/>
+        <DataGrid x:Name="DGrid" ItemsSource="{Binding Data}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalContentAlignment="Center" Margin="527,88,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата" Binding="{Binding date, StringFormat=\{0:dd.MM\}}" Width="*" />
+                <DataGridTextColumn Header="Курс" Binding="{Binding price}" Width="*"/>
+                <DataGridTextColumn Header="Изменение" Binding="{Binding change, StringFormat=\{0:0.000\}}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-        <syncfusion:SfChart Margin="0,42,140,0">
-                                    
-            <syncfusion:SfChart.PrimaryAxis>
-
-                <syncfusion:CategoryAxis Header="Date" />
-
-            </syncfusion:SfChart.PrimaryAxis>
-
-            <syncfusion:SfChart.SecondaryAxis>
-
-                <syncfusion:NumericalAxis Header="usd" />
-
-            </syncfusion:SfChart.SecondaryAxis>
-
-            <syncfusion:LineSeries ItemsSource="{Binding Data}" XBindingPath="date" YBindingPath="price" Interior="#FF0000" />
-
+        <syncfusion:SfChart x:Name="Chart" Margin="0,42,140,0">
+            <syncfusion:LineSeries ItemsSource="{Binding Data}" XBindingPath="date" YBindingPath="price" Interior="#FF0000"/>
         </syncfusion:SfChart>
-
     </Grid>
 </Window>

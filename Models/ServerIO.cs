@@ -20,7 +20,6 @@ namespace testtask1.Models
 
             var daily = new DailyInfo();
             var dynamic = daily.GetCursDynamic(dates[0], dates[1], CODE);
-            var valutes = daily.EnumValutes(false);
 
             bool first = true;
             foreach (DataRow row in dynamic.Tables[0].Rows)
@@ -30,7 +29,8 @@ namespace testtask1.Models
                 price.price = (decimal)row.ItemArray[3];
                 if (!first)
                 {
-                    price.change = ((float)price.price - (float)priceslist[priceslist.Count - 1].price) / (float)price.price;
+                    float old = (float)priceslist[priceslist.Count - 1].price;
+                    price.change = 100 * ((float)price.price - old) / old;
                 }
                 else
                 {
@@ -39,7 +39,10 @@ namespace testtask1.Models
                 priceslist.Add(price);
                 price = null;
             }
-            
+            foreach(StockPrice item in priceslist)
+            {
+                Console.WriteLine(item.date.ToShortDateString());
+            }
             return (priceslist);
         }
     }
