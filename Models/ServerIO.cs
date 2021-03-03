@@ -25,12 +25,12 @@ namespace testtask1.Models
             foreach (DataRow row in dynamic.Tables[0].Rows)
             {
                 StockPrice price = new StockPrice();
-                price.date = (DateTime)row.ItemArray[0];
-                price.price = (decimal)row.ItemArray[3];
+                price.Date = (DateTime)row.ItemArray[0];
+                price.Price = (decimal)row.ItemArray[3];
                 if (!first)
                 {
-                    float old = (float)priceslist[priceslist.Count - 1].price;
-                    price.change = 100 * ((float)price.price - old) / old;
+                    float old = (float)priceslist[priceslist.Count - 1].Price;
+                    price.Change = 100 * ((float)price.Price - old) / old;
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace testtask1.Models
             }
             foreach(StockPrice item in priceslist)
             {
-                Console.WriteLine(item.date.ToShortDateString());
+                Console.WriteLine(item.Date.ToShortDateString());
             }
             return (priceslist);
         }

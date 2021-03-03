@@ -15,14 +15,14 @@
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Курс валют на 16.02 - 77.78" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
         <DataGrid x:Name="DGrid" ItemsSource="{Binding Data}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalContentAlignment="Center" Margin="527,88,10,10">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Дата" Binding="{Binding date, StringFormat=\{0:dd.MM\}}" Width="*" />
-                <DataGridTextColumn Header="Курс" Binding="{Binding price}" Width="*"/>
-                <DataGridTextColumn Header="Изменение" Binding="{Binding change, StringFormat=\{0:0.000\}}" Width="*"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=\{0:dd.MM\}}" Width="*" />
+                <DataGridTextColumn Header="Курс" Binding="{Binding Price}" Width="*"/>
+                <DataGridTextColumn Header="Изменение" Binding="{Binding Change, StringFormat=\{0:0.000\}}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
 
         <syncfusion:SfChart x:Name="Chart" Margin="0,42,140,0">
-            <syncfusion:LineSeries ItemsSource="{Binding Data}" XBindingPath="date" YBindingPath="price" Interior="#FF0000"/>
+            <syncfusion:LineSeries ItemsSource="{Binding Data}" XBindingPath="Date" YBindingPath="Price" Interior="#FF0000"/>
         </syncfusion:SfChart>
     </Grid>
 </Window>
