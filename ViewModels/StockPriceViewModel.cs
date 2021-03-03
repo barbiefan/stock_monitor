@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using testtask1.Models;
 
 namespace testtask1
@@ -14,11 +15,30 @@ namespace testtask1
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private static int REFRESHTIME = 86400000;
+
         private List<StockPrice> data;
         private int amount;
         private string text;
-
+        private bool refreshbool;
+        
         private List<int> amountoptions = new List<int> { 10, 30, 50, 100, 150, 365, 730 };
+        public bool RefreshBool
+        {
+            get
+            {
+                return (this.refreshbool);
+            }
+            set
+            {
+                if (value != this.refreshbool) 
+                {
+                    this.refreshbool = value;
+                    NotifyPropertyChanged("RefreshBool");
+                    this.LoadPrices();
+                }
+            }
+        }
 
         public string TextBoxText
         {
@@ -88,7 +108,6 @@ namespace testtask1
         /// </summary>
         public StockPriceViewModel()
         {
-            //this.LoadPrices();
         }
 
         public void LoadPrices()
@@ -105,6 +124,17 @@ namespace testtask1
                 var last = this.Data[this.Data.Count - 1];
                 this.TextBoxText = String.Format("Курс на {0} - {1}", last.Date.ToShortDateString(), last.Price);
             }
+            if (this.RefreshBool)
+            {
+                this.ScheduleLoad();
+            }
+        }
+
+
+        public async void ScheduleLoad()
+        {
+            await Task.Delay(REFRESHTIME);
+            this.LoadPrices();
         }
 
 

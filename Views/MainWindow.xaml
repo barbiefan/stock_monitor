@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <CheckBox Content="Автоматическое обновление" HorizontalAlignment="Left" Margin="270,11,0,0" VerticalAlignment="Top"/>
+        <CheckBox IsChecked="{Binding RefreshBool}" Content="Автоматическое обновление" HorizontalAlignment="Left" Margin="270,11,0,0" VerticalAlignment="Top"/>
         <Button Content="Обновить" HorizontalAlignment="Left" Margin="201,7,0,0" VerticalAlignment="Top" Click="Button_Click" Height="22"/>
         <ComboBox x:Name="Combo" ItemsSource="{Binding AmountOptions}"  IsEditable="False" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" Margin="687,7,0,0" VerticalAlignment="Top" Width="60"/>
         <TextBlock HorizontalAlignment="Left" Margin="557,10,0,0" Text="Данные за последние:" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
