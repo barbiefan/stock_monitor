@@ -8,14 +8,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <CheckBox Content="Автоматическое обновление" HorizontalAlignment="Left" Margin="471,10,0,0" VerticalAlignment="Top"/>
-        <Button Content="Обновить" HorizontalAlignment="Left" Margin="379,7,0,0" VerticalAlignment="Top" Click="Button_Click" Height="22"/>
-        <ComboBox HorizontalAlignment="Left" Margin="670,7,0,0" VerticalAlignment="Top" Width="120"/>
+        <CheckBox Content="Автоматическое обновление" HorizontalAlignment="Left" Margin="270,11,0,0" VerticalAlignment="Top"/>
+        <Button Content="Обновить" HorizontalAlignment="Left" Margin="201,7,0,0" VerticalAlignment="Top" Click="Button_Click" Height="22"/>
+        <ComboBox x:Name="Combo" ItemsSource="{Binding AmountOptions}"  IsEditable="False" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" Margin="687,7,0,0" VerticalAlignment="Top" Width="60"/>
+        <TextBlock HorizontalAlignment="Left" Margin="557,10,0,0" Text="Данные за последние:" TextWrapping="Wrap" VerticalAlignment="Top" Width="125"/>
+        <TextBlock HorizontalAlignment="Left" Margin="752,10,0,0" Text="дней" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Динамика курса доллара США к рублю ("/><Run Text="USD, "/><Run Text="ЦБ "/><Run Language="ru-ru" Text="Р"/><Run Text="Ф)"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Text="Курс валют на 16.02 - 77.78" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
-        <DataGrid x:Name="DGrid" ItemsSource="{Binding Data}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalContentAlignment="Center" Margin="527,88,10,10">
+        <TextBlock Text="{Binding Path=TextBoxText}" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="172"/>
+        <DataGrid x:Name="DGrid" ItemsSource="{Binding Data}" AutoGenerateColumns="False" IsReadOnly="True" HorizontalContentAlignment="Center" Margin="527,88,10,10">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=\{0:dd.MM\}}" Width="*" />
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=\{0:dd.MM.yy\}}" Width="*" />
                 <DataGridTextColumn Header="Курс" Binding="{Binding Price}" Width="*"/>
                 <DataGridTextColumn Header="Изменение" Binding="{Binding Change, StringFormat=\{0:0.000\}}" Width="*"/>
             </DataGrid.Columns>

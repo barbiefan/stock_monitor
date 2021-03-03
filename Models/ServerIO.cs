@@ -39,10 +39,6 @@ namespace testtask1.Models
                 priceslist.Add(price);
                 price = null;
             }
-            foreach(StockPrice item in priceslist)
-            {
-                Console.WriteLine(item.Date.ToShortDateString());
-            }
             return (priceslist);
         }
     }

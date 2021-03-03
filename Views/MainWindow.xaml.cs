@@ -20,10 +20,10 @@ namespace testtask1
     /// </summary>
     public partial class MainWindow : Window
     {
-        readonly StockPriceViewModel Data = new StockPriceViewModel();
+        readonly StockPriceViewModel View = new StockPriceViewModel();
         public MainWindow()
         {
-            this.DataContext = Data;
+            this.DataContext = View;
 
             InitializeComponent();
 
@@ -31,7 +31,12 @@ namespace testtask1
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Data.LoadPrices();
+            View.LoadPrices();
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            View.Amount = (int)Combo.SelectedItem;
         }
     }
 }
