@@ -41,7 +41,7 @@ namespace testtask1
 
         public void LoadPrices()
         {
-            int amount = 35;
+            int amount = 365;
             List<DateTime> dates = new List<DateTime>();
             dates.Add(DateTime.Now.AddDays(-amount));
             dates.Add(DateTime.Now);
